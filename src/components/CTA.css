@@ -1,0 +1,36 @@
+.cta { background: var(--paper); }
+
+.cta-inner {
+  display: grid;
+  gap: 40px;
+  border: 1px solid var(--paper-line);
+  padding: clamp(32px, 5vw, 64px);
+}
+
+.cta h2 {
+  margin-top: 14px;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  max-width: 18ch;
+}
+
+.cta p { color: var(--text-muted); margin-top: 18px; max-width: 46ch; line-height: 1.6; }
+
+.cta-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+.cta-address {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 36ch;
+  line-height: 1.6;
+}
+
+@media (min-width: 860px) {
+  .cta-inner { grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+}

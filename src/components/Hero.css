@@ -1,0 +1,77 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(64px, 10vw, 128px);
+  padding-bottom: clamp(64px, 8vw, 104px);
+  background: var(--paper);
+}
+
+.hero-watermark {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  width: min(60vw, 780px);
+  transform: translateY(-50%) rotate(-6deg);
+  opacity: 0;
+  filter: grayscale(1) brightness(0) invert(1) sepia(0.4) hue-rotate(180deg);
+  pointer-events: none;
+  animation: watermark-in 1600ms 200ms ease-out forwards;
+}
+
+@keyframes watermark-in {
+  from { opacity: 0; transform: translateY(-50%) rotate(-6deg) scale(0.94); }
+  to { opacity: 0.05; transform: translateY(-50%) rotate(-6deg) scale(1); }
+}
+
+.hero-inner { position: relative; max-width: 760px; }
+
+.hero-headline {
+  font-size: clamp(2.4rem, 5.4vw, 4rem);
+  letter-spacing: -0.01em;
+  max-width: 14ch;
+  overflow: hidden;
+}
+
+.hero-lede {
+  margin-top: 26px;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 56ch;
+}
+
+.hero-actions {
+  margin-top: 38px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-credentials {
+  margin: 64px 0 0;
+  padding-top: 32px;
+  border-top: 1px solid var(--paper-line);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 24px;
+  max-width: 620px;
+}
+
+.hero-credentials dt {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.hero-credentials dd {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-watermark { animation: none; opacity: 0.05; }
+}
